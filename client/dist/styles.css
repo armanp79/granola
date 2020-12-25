@@ -150,6 +150,7 @@ label.contact-form {
   display: flex;
   flex-direction: column;
   align-items: center;
+
 }
 
 .shop-card-container {
@@ -169,11 +170,69 @@ label.contact-form {
   top:0;
   right:0;
   z-index: 1001;
-  background-color: rgb(255, 147, 75);
+  background-color:#fcf9ef;
   width: 450px;
   height:100vh;
+  box-shadow: 0 0 150px rgba(0, 0, 0, 0.1);
+  transition: transform 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+}
+
+.cart-content {
+  margin: 30px;
+  overflow: hidden;
+}
+
+.cart-close-button {
+  background: none;
+  border:none;
+  text-align: right;
+}
+
+.cart-close-button:focus {
+  outline: none;
+  box-shadow: none;
+}
 
 
+.cart-header{
+  padding: 10px;
+  padding-left:30px;
+  padding-right:30px;
+}
+.cart-items {
+  padding: 10px;
+  padding-left:30px;
+  padding-right:30px;
+}
+
+.cart-footer {
+  position:absolute;
+  bottom: 0;
+  padding: 10px;
+  padding-left:30px;
+  padding-right:30px;
+  margin-bottom: 30px;
+}
+
+.checkout-btn {
+  background-color: #F37335;
+  color: white;;
+  padding: 10px;
+  width: 100%;
+  border: none;
+}
+.checkout-btn:hover {
+  background-color: white;
+  color: #F37335;
+}
+
+.checkout-btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+.checkout-btn:active {
+  transform: scale(0.96);
 }
 
 .modal-back {
@@ -184,4 +243,24 @@ label.contact-form {
   height: 100%;
   background: rgba(255, 255, 255, 0.6);
   z-index:1000;
+}
+
+#app {
+  /*background: #FDC830;  /* fallback for old browsers */
+  /*background: -webkit-linear-gradient(to right, #F37335, #FDC830);  /* Chrome 10-25, Safari 5.1-6 */
+  /*background: linear-gradient(to right, #F37335, #FDC830); /*W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+*/
+  font-family: 'Courier New', monospace;
+  color: #F37335;
+}
+
+.counter-container {
+  border: 1px black;
+  display: flex;
+}
+
+.counter-btn{
+  margin: 5px;
+  padding: 5px;
+  border:none;
+  background: none;
 }

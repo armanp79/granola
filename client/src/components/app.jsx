@@ -15,6 +15,7 @@ import Blog from './blog.jsx';
 import Contact from './contact.jsx';
 import ProductPage from './products/productPage.jsx';
 import Cart from './cart.jsx';
+import Information from './checkout/information.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -88,6 +89,9 @@ class App extends React.Component {
           </Route>
           <Route path="/product">
             <ProductPage />
+          </Route>
+          <Route path="/checkout">
+            <Information />
           </Route>
           <Route path="/">
             <Home />

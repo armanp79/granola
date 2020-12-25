@@ -13,7 +13,7 @@ class About extends React.Component {
       <div className="wrapper">
         <Header />
         <div className="about-container" style={{minHeight:'70vh', marginTop: '110px'}}>
-          <h1 style={{textAlign: 'center'}}>The man behind the granola</h1> <br />
+          <h1 style={{textAlign: 'center'}}>Quaker Oats is for pussies</h1> <br />
 
 
           <div class="row">

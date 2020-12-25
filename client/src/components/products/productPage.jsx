@@ -8,6 +8,8 @@ import Footer from '../footer.jsx';
 
 import Cart from '../cart.jsx';
 
+import {Link} from 'react-router-dom';
+
 class ProductPage extends React.Component {
   constructor(props) {
     super(props);
@@ -56,8 +58,8 @@ class ProductPage extends React.Component {
                 <button onClick={this.showModal}>ADD TO CART</button>
               </div>
 
+              <Link to='shop'> Continue Shopping</Link>
             </div>
-
           </div>
         </div>
         <Footer />
