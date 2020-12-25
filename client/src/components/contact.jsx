@@ -1,13 +1,10 @@
 import React from 'react';
-import Footer from './footer.jsx';
-import Header from './header.jsx';
 
 class Contact extends React.Component {
 
   render() {
     return (
       <div className="wrapper">
-        <Header />
         <div className="contact-container" style={{marginTop: '110px'}}>
           <div className="contact-header" style={{textAlign:'center', padding: '30px'}}>
             <h1> CONTACT US</h1>
@@ -52,12 +49,11 @@ class Contact extends React.Component {
               </div>
 
 
-              <button className="submit-btn">SUBMIT</button>
+              <button className="checkout-btn">SUBMIT</button>
             </form>
 
           </div>
         </div>
-        <Footer />
       </div>
     );
   }

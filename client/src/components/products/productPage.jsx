@@ -3,9 +3,6 @@ import React from 'react';
 import images from '../images/images.jsx';
 import Counter from './counter.jsx';
 
-import Header from '../header.jsx';
-import Footer from '../footer.jsx';
-
 import Cart from '../cart.jsx';
 
 import {Link} from 'react-router-dom';
@@ -39,7 +36,6 @@ class ProductPage extends React.Component {
           show = {this.state.show}
           hideModal = {this.hideModal}
         />
-        <Header />
         <div className="product-container" style={{minHeight:'70vh', marginTop: '110px'}}>
           <div className="row">
             <div className="col">
@@ -62,7 +58,6 @@ class ProductPage extends React.Component {
             </div>
           </div>
         </div>
-        <Footer />
       </div>
     )
   }

@@ -1,6 +1,4 @@
 import React from 'react';
-import Footer from './footer.jsx';
-import Header from './header.jsx';
 import images from './images/images.jsx';
 
 import CardColumns from 'react-bootstrap/CardColumns';
@@ -10,7 +8,6 @@ class Blog extends React.Component {
   render() {
     return (
       <div className="wrapper">
-        <Header />
         <div className="blog-container" style={{minHeight:'70vh', marginTop: '110px'}}>
           <div style={{textAlign:'center'}}>
             <h1>The Blog</h1>
@@ -115,7 +112,6 @@ class Blog extends React.Component {
           </CardColumns>
 
         </div>
-        <Footer />
       </div>
     );
   }

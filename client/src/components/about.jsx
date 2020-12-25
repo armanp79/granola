@@ -1,8 +1,6 @@
 import React from 'react';
-import Footer from './footer.jsx';
 
 import {  Link } from "react-router-dom";
-import Header from './header.jsx';
 
 
 class About extends React.Component {
@@ -11,7 +9,7 @@ class About extends React.Component {
   render() {
     return (
       <div className="wrapper">
-        <Header />
+
         <div className="about-container" style={{minHeight:'70vh', marginTop: '110px'}}>
           <h1 style={{textAlign: 'center'}}>Quaker Oats is for pussies</h1> <br />
 
@@ -60,7 +58,6 @@ class About extends React.Component {
 
 
         </div>
-        <Footer />
       </div>
     );
   }

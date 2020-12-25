@@ -18,7 +18,6 @@ const Shop = () => {
 
   return (
     <div className="wrapper">
-      <Header />
 
       <div className="shop-container" style={{minHeight:'70vh', marginTop: '110px'}}>
         <div>Shop</div>
@@ -55,8 +54,6 @@ const Shop = () => {
         </div>
 
       </div>
-
-      <Footer />
     </div>
   );
 }

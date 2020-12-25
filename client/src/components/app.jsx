@@ -7,7 +7,7 @@ import {
   Link
 } from "react-router-dom";
 
-
+import Nav from './navigation.jsx';
 import Home from './home.jsx';
 import About from './about.jsx';
 import Shop from './shop.jsx';
@@ -16,6 +16,11 @@ import Contact from './contact.jsx';
 import ProductPage from './products/productPage.jsx';
 import Cart from './cart.jsx';
 import Information from './checkout/information.jsx';
+import Header from './header.jsx';
+import Footer from './footer.jsx';
+import Shipping from './checkout/shipping.jsx';
+import Payment from './checkout/payment.jsx';
+import Confirmation from './checkout/confirmation.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -47,53 +52,55 @@ class App extends React.Component {
             show={this.state.show}
             hideModal={this.hideModal}
           />
-          <div className="nav-bar-container">
-            <nav class="row">
-                <span class="col-sm-2">
-                  <Link to="/">Home</Link>
-                </span>
-                <span class="col-sm-2">
-                  <Link to="/about">About</Link>
-                </span>
-                <span class="col-sm-2">
-                  <Link to="/shop">Shop</Link>
-                </span>
-                <span class="col-sm-2">
-                  <Link to="/blog">Blog</Link>
-                </span>
-                <span class="col-sm-2">
-                  <Link to="/contact">Contact</Link>
-                </span>
-                <span class="col-sm-2">
-                  <button style={{background:'transparent', border:'none'}} onClick={this.showModal}>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 19.5c0 .829-.672 1.5-1.5 1.5s-1.5-.671-1.5-1.5c0-.828.672-1.5 1.5-1.5s1.5.672 1.5 1.5zm3.5-1.5c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5zm1.336-5l1.977-7h-16.813l2.938 7h11.898zm4.969-10l-3.432 12h-12.597l.839 2h13.239l3.474-12h1.929l.743-2h-4.195z"/></svg>
-                  </button>
-                </span>
-
-            </nav>
-          </div>
-
         </div>
         <Switch>
           <Route path="/about">
+            <Nav showModal={this.showModal} />
+            <Header />
             <About />
+            <Footer />
           </Route>
           <Route path="/shop">
+            <Nav showModal={this.showModal} />
+            <Header />
             <Shop />
+            <Footer />
           </Route>
           <Route path="/blog">
+            <Nav showModal={this.showModal} />
+            <Header />
             <Blog />
+            <Footer />
           </Route>
           <Route path="/contact">
+            <Nav showModal={this.showModal} />
+            <Header />
             <Contact />
+            <Footer />
           </Route>
           <Route path="/product">
+            <Nav showModal={this.showModal} />
+            <Header />
             <ProductPage />
+            <Footer />
           </Route>
           <Route path="/checkout">
             <Information />
+            <Footer />
+          </Route>
+          <Route path="/shipping">
+            <Shipping />
+            <Footer />
+          </Route>
+          <Route path="/payment">
+            <Payment />
+            <Footer />
+          </Route>
+          <Route path="/confirmation">
+            <Confirmation />
           </Route>
           <Route path="/">
+            <Nav showModal={this.showModal} />
             <Home />
           </Route>
         </Switch>
