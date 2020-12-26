@@ -1,11 +1,11 @@
 import React from 'react';
 
-import images from '../images/images.jsx';
+import { images } from '../images/images.jsx';
 import Counter from './counter.jsx';
 
 import Cart from '../cart.jsx';
 
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class ProductPage extends React.Component {
   constructor(props) {

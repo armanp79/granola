@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Counter from './products/counter.jsx';
-import images from './images/images.jsx';
+import { images } from './images/images.jsx';
 import { withRouter } from 'react-router-dom';
 
 class Cart extends React.Component {

@@ -1,5 +1,5 @@
 import React from 'react';
-import images from '../images/images.jsx';
+import { images } from '../images/images.jsx';
 import { Link } from 'react-router-dom';
 
 import SelectUSState from 'react-select-us-states';

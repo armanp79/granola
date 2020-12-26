@@ -1,7 +1,7 @@
 import React from 'react';
 import Footer from './footer.jsx';
 import Header from './header.jsx';
-import images from './images/images.jsx';
+import { images } from './images/images.jsx';
 import Card from 'react-bootstrap/Card';
 import CardColumns from 'react-bootstrap/CardColumns';
 

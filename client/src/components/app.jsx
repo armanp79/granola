@@ -22,6 +22,8 @@ import Shipping from './checkout/shipping.jsx';
 import Payment from './checkout/payment.jsx';
 import Confirmation from './checkout/confirmation.jsx';
 
+import Home2 from './home2.jsx';
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -101,7 +103,8 @@ class App extends React.Component {
           </Route>
           <Route path="/">
             <Nav showModal={this.showModal} />
-            <Home />
+            <Header />
+            <Home2 />
           </Route>
         </Switch>
       </Router>

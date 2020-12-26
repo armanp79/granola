@@ -1,5 +1,5 @@
 import React from 'react';
-import images from '../images/images.jsx';
+import { images } from '../images/images.jsx';
 import { Link, withRouter} from 'react-router-dom';
 
 class Payment extends React.Component {

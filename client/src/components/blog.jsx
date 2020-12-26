@@ -1,5 +1,5 @@
 import React from 'react';
-import images from './images/images.jsx';
+import { images } from './images/images.jsx';
 
 import CardColumns from 'react-bootstrap/CardColumns';
 import Card from 'react-bootstrap/Card';
