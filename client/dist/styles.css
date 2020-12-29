@@ -298,10 +298,7 @@ label.contact-form {
   }
 }
 
-.home-image2{
-  filter: grayscale(100%);
-}
 
 .home-image2:hover {
-  filter: grayscale(0%)
+  transform: scale(1.02);
 }

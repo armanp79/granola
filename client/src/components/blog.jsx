@@ -1,11 +1,49 @@
 import React from 'react';
-import { images } from './images/images.jsx';
+
+import {images} from './images/images.jsx';
 
 import CardColumns from 'react-bootstrap/CardColumns';
 import Card from 'react-bootstrap/Card';
 
+import axios from 'axios';
+import BlogCard from './blogCard.jsx';
+
 class Blog extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      blogPosts : []
+    };
+  }
+
+
+  componentDidMount() {
+    axios.get('/api/blog')
+      .then(response=>{
+        this.setState({
+          blogPosts: response.data
+        })
+      });
+  }
+
+
+
+
   render() {
+    if (this.state.blogPosts.length === 0) {
+      return (
+        <div className="wrapper">
+          <div className="blog-container" style={{minHeight:'70vh', marginTop: '110px'}}>
+            <div style={{textAlign:'center'}}>
+              <h1>The Blog</h1>
+            </div>
+            Loading ...
+          </div>
+        </div>
+      );
+    }
+
     return (
       <div className="wrapper">
         <div className="blog-container" style={{minHeight:'70vh', marginTop: '110px'}}>
@@ -13,102 +51,7 @@ class Blog extends React.Component {
             <h1>The Blog</h1>
           </div>
           <CardColumns>
-            <Card>
-              <Card.Img variant="top" src={images[0]}/>
-              <Card.Body>
-                <Card.Title>Blog title</Card.Title>
-                <Card.Text>
-                  This is a longer card with supporting text below as a natural lead-in to
-                  additional content. This content is a little bit longer.
-                </Card.Text>
-              </Card.Body>
-            </Card>
-            <Card>
-              <Card.Img variant="top" src={images[3]}/>
-              <Card.Body>
-                <Card.Title>Blog title</Card.Title>
-                <Card.Text>
-                  This is a longer card with supporting text below as a natural lead-in to
-                  additional content. This content is a little bit longer.
-                </Card.Text>
-              </Card.Body>
-            </Card>
-            <Card>
-              <Card.Img variant="top" src={images[2]}/>
-              <Card.Body>
-                <Card.Title>Blog title</Card.Title>
-                <Card.Text>
-                  This is a longer card with supporting text below as a natural lead-in to
-                  additional content. This content is a little bit longer.
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          </CardColumns>
-
-          <CardColumns>
-            <Card>
-              <Card.Img variant="top" src={images[1]}/>
-              <Card.Body>
-                <Card.Title>Blog title</Card.Title>
-                <Card.Text>
-                  This is a longer card with supporting text below as a natural lead-in to
-                  additional content. This content is a little bit longer.
-                </Card.Text>
-              </Card.Body>
-            </Card>
-            <Card>
-              <Card.Img variant="top" src={images[0]}/>
-              <Card.Body>
-                <Card.Title>Blog title</Card.Title>
-                <Card.Text>
-                  This is a longer card with supporting text below as a natural lead-in to
-                  additional content. This content is a little bit longer.
-                </Card.Text>
-              </Card.Body>
-            </Card>
-            <Card>
-              <Card.Img variant="top" src={images[4]}/>
-              <Card.Body>
-                <Card.Title>Blog title</Card.Title>
-                <Card.Text>
-                  This is a longer card with supporting text below as a natural lead-in to
-                  additional content. This content is a little bit longer.
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          </CardColumns>
-
-          <CardColumns>
-            <Card>
-              <Card.Img variant="top" src={images[4]}/>
-              <Card.Body>
-                <Card.Title>Blog title</Card.Title>
-                <Card.Text>
-                  This is a longer card with supporting text below as a natural lead-in to
-                  additional content. This content is a little bit longer.
-                </Card.Text>
-              </Card.Body>
-            </Card>
-            <Card>
-              <Card.Img variant="top" src={images[2]}/>
-              <Card.Body>
-                <Card.Title>Blog title</Card.Title>
-                <Card.Text>
-                  This is a longer card with supporting text below as a natural lead-in to
-                  additional content. This content is a little bit longer.
-                </Card.Text>
-              </Card.Body>
-            </Card>
-            <Card>
-              <Card.Img variant="top" src={images[1]}/>
-              <Card.Body>
-                <Card.Title>Blog title</Card.Title>
-                <Card.Text>
-                  This is a longer card with supporting text below as a natural lead-in to
-                  additional content. This content is a little bit longer.
-                </Card.Text>
-              </Card.Body>
-            </Card>
+            {this.state.blogPosts.map(item => <BlogCard post={item}/>)}
           </CardColumns>
 
         </div>
