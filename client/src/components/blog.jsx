@@ -18,6 +18,7 @@ class Blog extends React.Component {
   }
 
 
+
   componentDidMount() {
     axios.get('/api/blog')
       .then(response=>{

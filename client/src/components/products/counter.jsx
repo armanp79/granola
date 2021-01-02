@@ -4,7 +4,7 @@ class Counter extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      items: 1
+      items: this.props.quantity ? this.props.quantity : 1
     };
     this.increment = this.increment.bind(this);
     this.decrement = this.decrement.bind(this);
@@ -29,7 +29,7 @@ class Counter extends React.Component {
         <button className="counter-btn" onClick={this.decrement}>
           <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" focusable="false" style={{display: 'block', fill: 'none', height: '12px', width: '12px', stroke: 'currentcolor', strokeWidth: '5.33333', overflow: 'visible'}}><path d="m2 16h28"></path></svg>
         </button>
-        <div style={{display:'flex', alignItems:'center'}}>{this.state.items}</div>
+        <div id="num-items" style={{display:'flex', alignItems:'center'}}>{this.state.items}</div>
         <button className="counter-btn" onClick={this.increment}>
           <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" focusable="false" style={{display: 'block', fill: 'none', height: '12px', width: '12px', stroke: 'currentcolor', strokeWidth: '5.33333', overflow: 'visible'}}><path d="m2 16h28m-14-14v28"></path></svg>
         </button>

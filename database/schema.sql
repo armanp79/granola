@@ -4,7 +4,7 @@ drop table if exists blog;
 create table products (
   productID SERIAL,
   title TEXT,
-  price int,
+  price NUMERIC(5,2),
   description TEXT,
   images TEXT,
   PRIMARY KEY (productID)

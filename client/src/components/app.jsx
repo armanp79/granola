@@ -1,5 +1,8 @@
 import React from 'react';
 
+import Provider from 'react-redux';
+import store from '../store/store.js'
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -48,66 +51,67 @@ class App extends React.Component {
 
   render() {
     return (
-      <Router>
-        <div className="container-fluid">
-          <Cart
-            show={this.state.show}
-            hideModal={this.hideModal}
-          />
-        </div>
-        <Switch>
-          <Route path="/about">
-            <Nav showModal={this.showModal} />
-            <Header />
-            <About />
-            <Footer />
-          </Route>
-          <Route path="/shop">
-            <Nav showModal={this.showModal} />
-            <Header />
-            <Shop />
-            <Footer />
-          </Route>
-          <Route path="/blog">
-            <Nav showModal={this.showModal} />
-            <Header />
-            <Blog />
-            <Footer />
-          </Route>
-          <Route path="/contact">
-            <Nav showModal={this.showModal} />
-            <Header />
-            <Contact />
-            <Footer />
-          </Route>
-          <Route path="/product">
-            <Nav showModal={this.showModal} />
-            <Header />
-            <ProductPage />
-            <Footer />
-          </Route>
-          <Route path="/checkout">
-            <Information />
-            <Footer />
-          </Route>
-          <Route path="/shipping">
-            <Shipping />
-            <Footer />
-          </Route>
-          <Route path="/payment">
-            <Payment />
-            <Footer />
-          </Route>
-          <Route path="/confirmation">
-            <Confirmation />
-          </Route>
-          <Route path="/">
-            <Nav showModal={this.showModal} />
-            <Header />
-            <Home2 />
-          </Route>
-        </Switch>
-      </Router>
+        <Router>
+          <div className="container-fluid">
+            <Cart
+              show={this.state.show}
+              hideModal={this.hideModal}
+            />
+          </div>
+          <Switch>
+            <Route path="/about">
+              <Nav showModal={this.showModal} />
+              <Header />
+              <About />
+              <Footer />
+            </Route>
+            <Route path="/shop">
+              <Nav showModal={this.showModal} />
+              <Header />
+              <Shop />
+              <Footer />
+            </Route>
+            <Route path="/blog">
+              <Nav showModal={this.showModal} />
+              <Header />
+              <Blog />
+              <Footer />
+            </Route>
+            <Route path="/contact">
+              <Nav showModal={this.showModal} />
+              <Header />
+              <Contact />
+              <Footer />
+            </Route>
+            <Route path="/product/:id" >
+              <Nav showModal={this.showModal} />
+              <Header />
+              <ProductPage />
+              <Footer />
+            </Route>
+
+            <Route path="/checkout">
+              <Information />
+              <Footer />
+            </Route>
+            <Route path="/shipping">
+              <Shipping />
+              <Footer />
+            </Route>
+            <Route path="/payment">
+              <Payment />
+              <Footer />
+            </Route>
+            <Route path="/confirmation">
+              <Confirmation />
+            </Route>
+            <Route path="/">
+              <Nav showModal={this.showModal} />
+              <Header />
+              <Home2 />
+            </Route>
+          </Switch>
+        </Router>
     );
   }
 }

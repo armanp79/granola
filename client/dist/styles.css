@@ -140,8 +140,8 @@ label.contact-form {
 
 
 .cart-container{
-  position: absolute;
-  top:0;
+  position: fixed;
+  bottom:0;
   right:0;
   z-index: 1001;
   background-color:#fcf9ef;
@@ -178,6 +178,8 @@ label.contact-form {
   padding: 10px;
   padding-left:30px;
   padding-right:30px;
+  height: 380px;
+  overflow: scroll;
 }
 
 .cart-footer {
@@ -301,4 +303,25 @@ label.contact-form {
 
 .home-image2:hover {
   transform: scale(1.02);
+}
+
+
+body.modal-open {
+  overflow: hidden;
+}
+
+
+.cart-modal-product-title {
+  height: 76px;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.shop-product-description {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }

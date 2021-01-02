@@ -6,7 +6,7 @@
   "scripts": {
     "react-dev": "webpack --watch",
     "start": "nodemon server/index.js",
-    "seed": "psql -d granola -U root < database/schema.sql"
+    "seed": "psql -d granola -U root < database/schema.sql && node database/loadSampleData.js"
   },
   "author": "Arman Pithawla",
   "license": "ISC",

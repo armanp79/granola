@@ -23,3 +23,14 @@ exports.getAllProducts = (callback) => {
   });
 };
 
+exports.getProduct = (id, callback) => {
+  db.query(`select * from products where productid = ${id};`, (error, results)=>{
+    if (error) {
+      console.log(`error getting product with id ${id} from database`);
+      callback(error);
+    } else {
+      callback(null, results);
+    }
+  });
+}
+

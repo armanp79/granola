@@ -3,6 +3,9 @@ import React from 'react';
 import Counter from './products/counter.jsx';
 import { images } from './images/images.jsx';
 import { withRouter } from 'react-router-dom';
+import CartItem from './cartItem.jsx';
+
+import { connect } from 'react-redux';
 
 class Cart extends React.Component {
   constructor(props) {
@@ -23,8 +26,19 @@ class Cart extends React.Component {
     history.push('/checkout');
   }
 
+  getSubtotal() {
+    const items = this.props.cartItems;
+    var price = 0;
+    for (let i = 0; i < items.length; i++) {
+      price += items[i].price * items[i].quantity;
+    }
+    return price;
+  }
+
   render() {
+    console.log('cartProps', this.props, 'state', this.state)
     if (this.props.show) {
+      document.getElementsByTagName('body')[0].style.overflow = 'hidden';
       return (
         <div>
           <div className="modal-back"></div>
@@ -39,23 +53,14 @@ class Cart extends React.Component {
               <hr />
 
               <div className="cart-items" style={{padding:'15px'}}>
-                <div className="row">
-                  <img className="col" src={images[5]}></img>
-                  <div className="col">
-                    <h2> Title </h2>
-                    <div className="row">
-                      <Counter />
-                      <p style={{margin:'0', display:'flex', alignItems:'center'}}>10 bitcoins</p>
-                    </div>
-                  </div>
-                </div>
+                {this.props.cartItems.map(item => <CartItem item={item}/>)}
               </div>
 
               <div className="cart-footer">
                 <hr />
                 <div className="row">
                   <div className="col"><h5>Subtotal</h5></div>
-                  <div className="col" style={{margin:'0', display:'flex', alignItems:'center', fontSize:'12px'}}>10 bitcoin</div>
+                  <div className="col" style={{margin:'0', display:'flex', alignItems:'center', fontSize:'12px'}}>${this.getSubtotal()}</div>
                 </div>
                 <p style={{fontSize:'12px'}}>Shipping, taxes, and discount codes calculated at checkout.</p>
                 <button className="checkout-btn" onClick={this.handleCheckOut}>CHECK OUT</button>
@@ -66,9 +71,19 @@ class Cart extends React.Component {
         </div>
       );
     } else {
+      document.getElementsByTagName('body')[0].style.overflow = 'initial';
       return(null);
     }
   }
 }
 
-export default withRouter(Cart);
+const mapStateToProps = state => {
+  console.log('sToProp', state);
+  return({cartItems: state.cart.cartItems});
+}
+
+// {
+//   cartItems: state.cartItems
+// })
+
+export default connect(mapStateToProps, null)(withRouter(Cart));

@@ -4,17 +4,27 @@ import { images } from '../images/images.jsx';
 import Counter from './counter.jsx';
 
 import Cart from '../cart.jsx';
+import store from '../../store/store.js';
+import { addItem } from '../../actions/actions.js'
+import {connect } from 'react-redux';
 
-import { Link } from 'react-router-dom';
+
+import { withRouter, Link } from 'react-router-dom';
+
+import axios from 'axios';
+
 
 class ProductPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      show: false
+      show: false,
+      product: {title:1, description:1, price:1, images:1},
+      cartItem: {}
     }
     this.showModal = this.showModal.bind(this);
     this.hideModal = this.hideModal.bind(this);
+    this.handleAdd = this.handleAdd.bind(this);
   }
 
   showModal() {
@@ -29,6 +39,30 @@ class ProductPage extends React.Component {
     });
   }
 
+  handleAdd(e) {
+    e.preventDefault();
+    var item = this.state.product;
+    var num = document.getElementById("num-items").innerHTML;
+    item.quantity = Number(num);
+    console.log('checkNumver', num, item.quantity);
+    console.log('adding...', item);
+    store.dispatch(addItem(item));
+
+    this.showModal();
+  }
+
+  componentDidMount() {
+    console.log(this.props)
+    const id = this.props.match.params.id;
+    axios.get(`/api/products/${id}`)
+      .then(response=>{
+        this.setState({
+          product: response.data[0]
+        });
+      });
+
+  }
+
   render() {
     return (
       <div className="container-fluid">
@@ -39,22 +73,22 @@ class ProductPage extends React.Component {
         <div className="product-container" style={{minHeight:'70vh', marginTop: '110px'}}>
           <div className="row">
             <div className="col">
-              <img src={images[5]} />
+              <img src={this.state.product.images} />
             </div>
 
             <div className="col product-information">
               <h1>
-                Peanut Butter Dark Chocolate Refrigerated 1/2 oz Granola
+                {this.state.product.title}
               </h1>
-              <p>Creamy peanut butter meets semi-sweet cocoa and rich dark chocolate chips to add the perfect amount of sweetness without all the guilt. Get your favorite creamy peanut butter and chocolate chip combination but with 13G of complete plant protein to leave you feeling Bright and more than satisfied all day long. Enjoy on the go for one week- take them wherever your journey takes you.</p>
+              <p>{this.state.product.description}</p>
 
-              <div>20 bitcoin</div>
+              <div>${this.state.product.price}</div>
               <div className="row">
                 <Counter />
-                <button onClick={this.showModal}>ADD TO CART</button>
+                <button onClick={this.handleAdd}>ADD TO CART</button>
               </div>
 
-              <Link to='shop'> Continue Shopping</Link>
+              <Link to='/shop'> Continue Shopping</Link>
             </div>
           </div>
         </div>
@@ -63,4 +97,4 @@ class ProductPage extends React.Component {
   }
 }
 
-export default ProductPage;
+export default withRouter(ProductPage);
